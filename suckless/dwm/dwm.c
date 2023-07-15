@@ -415,7 +415,7 @@ void
 attachaside(Client *c) {
 	Client *at = nexttagged(c);
 	if(!at) {
-		attachaside(c);
+		attach(c);
 		return;
 	}
 	c->next = at->next;
@@ -1939,7 +1939,7 @@ updategeom(void)
 				m->clients = c->next;
 				detachstack(c);
 				c->mon = mons;
-				attach(c);
+				attachaside(c);
 				attachstack(c);
 			}
 			if (m == selmon)
