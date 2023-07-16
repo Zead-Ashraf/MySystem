@@ -30,7 +30,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { ">_", "{..}", "www", "~/", "(ˇ▽ˇ)ノ♫", "¬‿¬"};
 
 static const unsigned int ulinepad	= 5;	/* horizontal padding between the underline and tag */
 static const unsigned int ulinestroke	= 2;	/* thickness / height of the underline */
@@ -43,8 +43,23 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
+	{ NULL,   "terminator",       NULL,       1,        0,           -1 },
+	{ "st",         NULL,         NULL,       1,        0,           -1 },
+	                              /* tag 2 */
+	{ NULL,       "geany",       NULL,       1 << 1,        0,           -1 },
+	{ NULL,       "code",       NULL,       1 << 1,        0,           -1 },
+	{ NULL,       "gns3",       NULL,       1 << 1,        0,           -1 },
+	                              /* tag 3 */
+	{ "Firefox",     NULL,       NULL,       1 << 2,        0,           -1 },
+	{ NULL,   "wireshark",       NULL,       1 << 2,        0,           -1 },
+	                             /* tag 4 */
+	{ NULL,  "thunar",       NULL,       1 << 3,        0,           -1 },
+	                             /* tag 5 */
+	{ "vlc",  NULL,       NULL,       1 << 4,        0,           -1 },
+	{ "mpv",  NULL,       NULL,       1 << 4,        0,           -1 },
+	                           /* current window */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	
 };
 
 /* layout(s) */
