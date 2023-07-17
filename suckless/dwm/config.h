@@ -119,6 +119,10 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
+                          // volume
+static const char *upvol[] = { "/usr/bin/amixer", "set", "Master", "5%+", NULL }; 
+static const char *downvol[] = { "/usr/bin/amixer", "set", "Master", "5%-", NULL };
+static const char *mutevol[] = {"/bin/bash", "-c", "amixer -D default sset Master Playback 0%" }; 
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -158,6 +162,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +5 } },
 	{ MODKEY|ShiftMask,             XK_minus,  setgaps,        {.i = GAP_RESET } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = GAP_TOGGLE} },
+	{ MODKEY,                       XK_F9,     spawn,          {.v = mutevol } },
+	{ MODKEY,                       XK_F11,    spawn,          {.v = downvol } },
+    { MODKEY,                       XK_F12,    spawn,          {.v = upvol } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
