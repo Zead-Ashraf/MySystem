@@ -18,15 +18,28 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
+                  /* tokyo night scheme colors */
+static const char dark_black[]        = "#1a1b26"; // status bar (bg)
+static const char active_white[]        = "#bdc7f0"; // status bar (fg active)
+static const char inactive_white[]        = "#959cbd"; // status bar (fg inactive)
+                 /* rainbow Tags colors */
+static const char col_red[]        = "#ff0000";
+static const char col_orange[]        = "#ff7f00";
+static const char col_yellow[]        = "#ffff00";
+static const char col_green[]        = "#00ff00";
+static const char col_cyan2[]        = "#2ac3de";
+static const char col_purple[]        = "#7aa2f7";
+
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
-	[SchemeStatus]  = { "#bdc7f0", "#1a1b26",  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]  = { "#bdc7f0", "#1a1b26",  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-	[SchemeTagsNorm]  = { "#959cbd", "#1a1b26",  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-	[SchemeInfoSel]  = { "#bdc7f0", "#1a1b26",  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-	[SchemeInfoNorm]  = { "#bdc7f0", "#1a1b26",  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+	[SchemeStatus]  = { active_white, dark_black,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeTagsSel]  = { active_white, dark_black,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+	[SchemeTagsNorm]  = { inactive_white, dark_black,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+	[SchemeInfoSel]  = { active_white, dark_black,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeInfoNorm]  = { active_white, dark_black,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 
 };
 
@@ -40,12 +53,12 @@ static const int ulineall 		= 0;	/* 1 to show underline on all tags, 0 for just 
 
 static const char *tagsel[][2] = {
 	/*    fg           bg   */
-	{ "#ff0000", "#1a1b26" },
-	{ "#ff7f00", "#1a1b26" },
-	{ "#ffff00", "#1a1b26" },
-	{ "#00ff00", "#1a1b26" },
-	{ "#2ac3de", "#1a1b26" },
-	{ "#7aa2f7", "#1a1b26" },
+	{ col_red, dark_black },
+	{ col_orange, dark_black },
+	{ col_yellow, dark_black },
+	{ col_green, dark_black },
+	{ col_cyan2, dark_black },
+	{ col_purple, dark_black },
 };
 
 static const Rule rules[] = {
