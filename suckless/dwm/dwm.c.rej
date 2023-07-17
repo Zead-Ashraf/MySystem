@@ -1,13 +1,44 @@
 --- dwm.c
 +++ dwm.c
-@@ -708,8 +708,8 @@ drawbar(Monitor *m)
- 	/* draw status first so it can be overdrawn by tags later */
- 	if (m == selmon) { /* status is only drawn on selected monitor */
- 		drw_setscheme(drw, scheme[SchemeNorm]);
--		tw = TEXTW(stext) - lrpad + 2; /* 2px right padding */
--		drw_text(drw, m->ww - tw, 0, tw, bh, 0, stext, 0);
-+		tw = TEXTW(stext);
-+		drw_text(drw, m->ww - tw, 0, tw, bh, lrpad / 2, stext, 0);
- 	}
+@@ -114,6 +117,12 @@ typedef struct {
+ 	void (*arrange)(Monitor *);
+ } Layout;
  
- 	for (c = m->clients; c; c = c->next) {
++typedef struct {
++	int isgap;
++	int realgap;
++	int gappx;
++} Gap;
++
+ struct Monitor {
+ 	char ltsymbol[16];
+ 	float mfact;
+@@ -1721,18 +1764,18 @@ tile(Monitor *m)
+ 	if (n > m->nmaster)
+ 		mw = m->nmaster ? m->ww * m->mfact : 0;
+ 	else
+-		mw = m->ww;
+-	for (i = my = ty = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
++		mw = m->ww - m->gap->gappx;
++	for (i = 0, my = ty = m->gap->gappx, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
+ 		if (i < m->nmaster) {
+-			h = (m->wh - my) / (MIN(n, m->nmaster) - i);
+-			resize(c, m->wx, m->wy + my, mw - (2*c->bw), h - (2*c->bw), 0);
+-			if (my + HEIGHT(c) < m->wh)
+-				my += HEIGHT(c);
++			h = (m->wh - my) / (MIN(n, m->nmaster) - i) - m->gap->gappx;
++			resize(c, m->wx + m->gap->gappx, m->wy + my, mw - (2*c->bw) - m->gap->gappx, h - (2*c->bw), 0);
++			if (my + HEIGHT(c) + m->gap->gappx < m->wh)
++				my += HEIGHT(c) + m->gap->gappx;
+ 		} else {
+-			h = (m->wh - ty) / (n - i);
+-			resize(c, m->wx + mw, m->wy + ty, m->ww - mw - (2*c->bw), h - (2*c->bw), 0);
+-			if (ty + HEIGHT(c) < m->wh)
+-				ty += HEIGHT(c);
++			h = (m->wh - ty) / (n - i) - m->gap->gappx;
++			resize(c, m->wx + mw + m->gap->gappx, m->wy + ty, m->ww - mw - (2*c->bw) - 2*m->gap->gappx, h - (2*c->bw), 0);
++			if (ty + HEIGHT(c) + m->gap->gappx < m->wh)
++				ty += HEIGHT(c) + m->gap->gappx;
+ 		}
+ }
+ 
