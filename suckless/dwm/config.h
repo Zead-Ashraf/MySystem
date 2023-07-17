@@ -122,7 +122,9 @@ static const char *termcmd[]  = { "st", NULL };
                           // volume
 static const char *upvol[] = { "/usr/bin/amixer", "set", "Master", "5%+", NULL }; 
 static const char *downvol[] = { "/usr/bin/amixer", "set", "Master", "5%-", NULL };
-static const char *mutevol[] = {"/bin/bash", "-c", "amixer -D default sset Master Playback 0%" }; 
+static const char *mutevol[] = {"/bin/bash", "-c", "amixer -D default sset Master Playback 0%" };
+                         // Screen Lock
+static const char *lockscreen[] = {"/bin/bash", "-c", "i3lock -c 0d1926 --clock --time-str '%I:%M%p' --date-str '%a %d %B %Y' --date-color '0883ff' --time-color 'ff0883' --date-size 20 --time-size 32" };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -165,6 +167,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_F9,     spawn,          {.v = mutevol } },
 	{ MODKEY,                       XK_F11,    spawn,          {.v = downvol } },
     { MODKEY,                       XK_F12,    spawn,          {.v = upvol } },
+    { MODKEY,                       XK_s,      spawn,          { .v = lockscreen } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
