@@ -8,6 +8,8 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 10;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
+static const int horizpadbar        = 18;        /* horizontal padding for statusbar */
+static const int vertpadbar         = 18;        /* vertical padding for statusbar */
 static const int user_bh            = 35;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const char *fonts[]          = { "FiraMono Nerd Font Bold:size=10" };
 static const char dmenufont[]       = "FiraMono Nerd Font Bold:size=10";
