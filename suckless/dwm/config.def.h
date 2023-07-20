@@ -12,7 +12,6 @@ static const int horizpadbar        = 18;        /* horizontal padding for statu
 static const int vertpadbar         = 18;        /* vertical padding for statusbar */
 static const int user_bh            = 35;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const char *fonts[]          = { "FiraMono Nerd Font Bold:size=10:antialias=true:autohint=true",
-										"Dejavu Sans Mono for Powerline:pixelsize=12:antialias=true:autohint=true"
 	                                    "FontAwesome:size=10:antialias=true:autohint=true" };
 static const char dmenufont[]       = "FiraMono Nerd Font Bold:size=10";
 static const char col_gray1[]       = "#222222";
