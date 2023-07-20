@@ -3,3 +3,4 @@
 *.orig
 *.*.orig
 *.*.*.orig
+dmenu.c.orig
