@@ -1,0 +1,9 @@
+suckless/dwm/dwm
+suckless/dwm/dwm.o
+suckless/*/*.rej
+suckless/*/*.*.rej
+suckless/*/*.orig
+suckless/*/*.*.orig
+suckless/*/*.*.*.orig
+suckless/*/dmenu.c.orig
+suckless/*/config.h
