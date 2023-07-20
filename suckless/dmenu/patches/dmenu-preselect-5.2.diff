@@ -1,0 +1,60 @@
+diff --git a/config.def.h b/config.def.h
+index 1edb647..95bee59 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -21,3 +21,6 @@ static unsigned int lines      = 0;
+  * for example: " /?\"&[]"
+  */
+ static const char worddelimiters[] = " ";
++
++/* -n option; preselected item starting from 0 */
++static unsigned int preselected = 0;
+diff --git a/dmenu.1 b/dmenu.1
+index 323f93c..6e1ee7f 100644
+--- a/dmenu.1
++++ b/dmenu.1
+@@ -22,6 +22,8 @@ dmenu \- dynamic menu
+ .IR color ]
+ .RB [ \-w
+ .IR windowid ]
++.RB [ \-n
++.IR number ]
+ .P
+ .BR dmenu_run " ..."
+ .SH DESCRIPTION
+@@ -80,6 +82,9 @@ prints version information to stdout, then exits.
+ .TP
+ .BI \-w " windowid"
+ embed into windowid.
++.TP
++.BI \-n " number"
++preseslected item starting from 0.
+ .SH USAGE
+ dmenu is completely controlled by the keyboard.  Items are selected using the
+ arrow keys, page up, page down, home, and end.
+diff --git a/dmenu.c b/dmenu.c
+index 27b7a30..e2e79b3 100644
+--- a/dmenu.c
++++ b/dmenu.c
+@@ -679,6 +679,12 @@ setup(void)
+ 	promptw = (prompt && *prompt) ? TEXTW(prompt) - lrpad / 4 : 0;
+ 	inputw = mw / 3; /* input width: ~33% of monitor width */
+ 	match();
++	for (i = 0; i < preselected; i++) {
++		if (sel && sel->right && (sel = sel->right) == next) {
++			curr = next;
++			calcoffsets();
++		}
++	}
+ 
+ 	/* create menu window */
+ 	swa.override_redirect = True;
+@@ -757,6 +763,8 @@ main(int argc, char *argv[])
+ 			colors[SchemeSel][ColFg] = argv[++i];
+ 		else if (!strcmp(argv[i], "-w"))   /* embedding window id */
+ 			embed = argv[++i];
++		else if (!strcmp(argv[i], "-n"))   /* preselected item */
++			preselected = atoi(argv[++i]);
+ 		else
+ 			usage();
+ 

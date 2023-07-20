@@ -30,5 +30,8 @@ static unsigned int min_lineheight = 43;
  */
 static const char worddelimiters[] = " ";
 
+/* -n option; preselected item starting from 0 */
+static unsigned int preselected = 0;
+
 /* Size of the window border */
 static unsigned int border_width = 2;
