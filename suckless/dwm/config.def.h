@@ -11,8 +11,8 @@ static const int sidepad            = 10;       /* horizontal padding of bar */
 static const int horizpadbar        = 18;        /* horizontal padding for statusbar */
 static const int vertpadbar         = 18;        /* vertical padding for statusbar */
 static const int user_bh            = 35;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const char *fonts[]          = { "FiraMono Nerd Font Bold:size=10",
-	                                    "FontAwesome:size=10" };
+static const char *fonts[]          = { "FiraMono Nerd Font Bold:size=10:antialias=true:autohint=true",
+	                                    "FontAwesome:size=10:antialias=true:autohint=true" };
 static const char dmenufont[]       = "FiraMono Nerd Font Bold:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -118,7 +118,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, NULL };
 static const char *termcmd[]  = { "st", NULL };
                           // volume
 static const char *upvol[] = { "/usr/bin/amixer", "set", "Master", "5%+", NULL }; 
