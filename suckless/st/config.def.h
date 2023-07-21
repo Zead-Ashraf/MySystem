@@ -5,12 +5,12 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Monospace:pixelsize=16:antialias=true:autohint=true";
+static char *font = "mono:pixelsize=18:antialias=true:autohint=true";
 
 /* Spare fonts */
 static char *font2[] = {
-	"DejaVu Sans Mono for Powerline:pixelsize=12:antialias=true:autohint=true",
-    "FiraMono Nerd Font Bold:pixelsize=16:antialias=true:autohint=true",
+	"FiraMono Nerd Font Bold:pixelsize=18:antialias=true:autohint=true",
+	"DejaVu Sans Mono for Powerline:pixelsize=16:antialias=true:autohint=true",
 };
 
 static int borderpx = 2;
@@ -105,34 +105,32 @@ float alpha = 0.8, alphaUnfocused = 0.6;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
+	"#3b3d45", /* black */
+	"#eb3d54", /* red */
+	"#78bd65", /* green */
+	"#e5cd52", /* yellow */
+	"#4fb4d8", /* blue */
+	"#c46eb1", /* magenta */
+	"#85e0c9", /* cyan */
+	"white",   /* white */
 
-	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+	"#525560", /* bright grey */
+	"#f1223e", /* bright red */
+	"#6cc653", /* bright green */
+	"#edcd2c", /* bright yellow */
+	"#21acde", /* bright blue */
+	"#ce64b7", /* bright magenta */
+	"#63e9c7", /* bright cyan */
+	"white",   /* bright white */
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
-	"gray90", /* default foreground colour */
-	"#1a1b26", /* default background colour */
-	"#000000"
+	"#c8d3f5",     
+    "#3654a7",
+    "#c8d3f5", /* default foreground colour */
+    "#222436", /* default background colour */
+    "#000000"
 };
 
 
