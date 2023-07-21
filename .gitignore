@@ -7,3 +7,4 @@ suckless/*/*.*.orig
 suckless/*/*.*.*.orig
 suckless/*/dmenu.c.orig
 suckless/*/config.h
+suckless/st/TODO
