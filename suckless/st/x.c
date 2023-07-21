@@ -717,7 +717,10 @@ brelease(XEvent *e)
 		mousereport(e);
 		return;
 	}
-
+	
+	if (e->xbutton.button == Button3)
+		selpaste(NULL);
+	
 	if (mouseaction(e, 1))
 		return;
 	if (btn == Button1)
