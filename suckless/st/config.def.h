@@ -5,7 +5,14 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
+static char *font = "Monospace:pixelsize=16:antialias=true:autohint=true";
+
+/* Spare fonts */
+static char *font2[] = {
+	"DejaVu Sans Mono for Powerline:pixelsize=12:antialias=true:autohint=true",
+    "FiraMono Nerd Font Bold:pixelsize=16:antialias=true:autohint=true",
+};
+
 static int borderpx = 2;
 
 /*
@@ -121,7 +128,7 @@ static const char *colorname[] = {
 	"#cccccc",
 	"#555555",
 	"gray90", /* default foreground colour */
-	"black", /* default background colour */
+	"#1a1b26", /* default background colour */
 };
 
 
