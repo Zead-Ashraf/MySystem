@@ -1,3 +1,17 @@
 # power control script
 shift + alt + z
    bash ~/scripts/control_power.sh
+
+# requirements (playerctl) & (mpv-mpris) 
+shift + alt + p
+    playerctl --all-players pause
+shift + alt + o
+    playerctl --all-players play
+
+# requirements (playerctl): play vlc 
+shift + alt + v
+    playerctl --player=vlc play
+
+# requirements (playerctl) & (mpv-mpris): play mpv 
+shift + alt + m
+    playerctl --player=mpv play
