@@ -46,3 +46,9 @@ function remove() {
     pass rm -f "$choosed_folder/$choosed_file"
 }
 
+function generate() {
+    nav_to_folder
+    password_name=$(echo -n -e "" | dmenu -l 3 -p "write password name:")
+    pass generate -c "$choosed_folder/$password_name"
+}
+
