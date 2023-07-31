@@ -20,3 +20,6 @@ shift + alt + m
 
 shift + alt + s
     bash ~/scripts/password_manger.sh
+
+shift + alt + d
+    bash ~/scripts/mount_method.sh
