@@ -34,7 +34,7 @@ function nav_to_file() {
     fi
 }
 
-function show() {
+function copy() {
     nav_to_file
     choosed_file=${choosed_file%.gpg}
     pass -c "$choosed_folder/$choosed_file"
@@ -52,3 +52,17 @@ function generate() {
     pass generate -c "$choosed_folder/$password_name"
 }
 
+function main() {
+    action=$(echo -n -e "copy\nremove\ngenerate" | dmenu -l 3 -p "choosed action:")
+    if [[ $action == "copy" ]]; then
+        copy
+    elif [[ $action == "remove" ]]; then
+        remove
+    elif [[ $action == "generate" ]]; then
+        generate
+    else
+        echo "you have choosed nothing"
+    fi
+}
+
+main
