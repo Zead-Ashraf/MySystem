@@ -15,3 +15,15 @@ shift + alt + v
 # requirements (playerctl) & (mpv-mpris): play mpv 
 shift + alt + m
     playerctl --player=mpv play
+
+# requirements (pass) | passdmenu
+
+shift + alt + s
+    bash ~/scripts/password_manger.sh
+
+shift + alt + d
+    bash ~/scripts/mount_method.sh
+
+shift + alt + h
+    bash ~/scripts/add_taskwarrior_habits.sh
+
