@@ -12,7 +12,7 @@ function unmount_mtp() {
 
     if [[ $unmount_device ]]; then
         sudo umount -l "/media/$unmount_device"
-        sudo rm -r "/media/$unmount_device"
+        rm -rf "/media/$unmount_device"
     else
         echo "you have not choosed nothing"
     fi
