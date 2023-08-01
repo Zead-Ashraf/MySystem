@@ -12,7 +12,7 @@ function unmount_flash() {
 
     if [[ $umount_device ]]; then
         sudo umount "/media/$umount_device"
-        sudo rm -r "/media/$umount_device"
+        rm -rf "/media/$umount_device"
     else
         echo "you have not choosed nothing"
     fi
