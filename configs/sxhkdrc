@@ -23,3 +23,7 @@ shift + alt + s
 
 shift + alt + d
     bash ~/scripts/mount_method.sh
+
+shift + alt + h
+    bash ~/scripts/add_taskwarrior_habits.sh
+
