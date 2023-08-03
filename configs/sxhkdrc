@@ -17,7 +17,7 @@ shift + alt + m
     playerctl --player=mpv play
 
 # requirements (playerctl) & (mpv-mpris): next track (vlc) first, if not then (mpv)
-shitf + alt + n
+shift + alt + n
     playerctl --player=vlc,mpv next
 
 # requirements (playerctl) & (mpv-mpris): previous track (vlc) first, if not then (mpv)
