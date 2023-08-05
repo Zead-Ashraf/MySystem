@@ -83,6 +83,8 @@ plugins=(
 	aliases
 	copypath
 	web-search
+    pass
+    taskwarrior
 )
 
 source $ZSH/oh-my-zsh.sh
