@@ -2,11 +2,13 @@
 shift + alt + z
    bash ~/scripts/control_power.sh
 
-# requirements (playerctl) & (mpv-mpris) 
+# requirements (playerctl) & (mpv-mpris) pause all playres 
 shift + alt + p
-    playerctl --all-players pause
+    bash ~/scripts/pause_playres.sh
+
+# unpause all playres
 shift + alt + o
-    playerctl --all-players play
+    bash ~/scripts/play_playres.sh
 
 # requirements (playerctl): play vlc 
 shift + alt + v
@@ -16,6 +18,10 @@ shift + alt + v
 shift + alt + m
     playerctl --player=mpv play
 
+# unpause moc
+shift + super + o
+    mocp --unpause
+
 # requirements (playerctl) & (mpv-mpris): next track (vlc) first, if not then (mpv)
 shift + alt + n
     playerctl --player=vlc,mpv next
@@ -24,6 +30,12 @@ shift + alt + n
 shift + alt + b
     playerctl --player=vlc,mpv previous
 
+# play next song (moc)
+shift + super + n
+    mocp --next
+#play previous song (moc)
+shift + super + b
+    mocp --previous
 # requirements (pass) | passdmenu
 shift + alt + s
     bash ~/scripts/password_manger.sh
