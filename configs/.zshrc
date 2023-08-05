@@ -123,6 +123,9 @@ alias vit="source .vitVenv/bin/activate && vit"
 alias pydoro="source .pydoro/bin/activate && pydoro"
 alias lock="i3lock -c 0d1926 --clock --time-str '%I:%M%p' --date-str '%a %d %B %Y' --date-color '0883ff' --time-color 'ff0883' --date-size 20 --time-size 32"
 alias ytf="ytfzf -f"
+alias mbash="echo '#!/bin/bash' > "
+alias cp="~/.advcpmv/advcp -g"
+alias mv="~/.advcpmv/advmv -g"
 
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
