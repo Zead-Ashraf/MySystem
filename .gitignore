@@ -8,3 +8,6 @@ suckless/*/*.*.*.orig
 suckless/*/dmenu.c.orig
 suckless/*/config.h
 suckless/st/TODO
+suckless/dwm/config.def.h.rej
+suckless/dwm/dwm.c.orig
+suckless/dwm/config.def.h.orig
