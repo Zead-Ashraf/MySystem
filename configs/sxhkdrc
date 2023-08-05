@@ -36,7 +36,6 @@ shift + super + n
 #play previous song (moc)
 shift + super + b
     mocp --previous
-
 # requirements (pass) | passdmenu
 shift + alt + s
     bash ~/scripts/password_manger.sh
