@@ -1,3 +1,7 @@
+# syncronise (pass) & (taskwarrior) with git
+alt + ctrl + s
+    bash ~/scripts/sync.sh
+
 # power control script
 shift + alt + z
    bash ~/scripts/control_power.sh
@@ -36,6 +40,7 @@ shift + super + n
 #play previous song (moc)
 shift + super + b
     mocp --previous
+
 # requirements (pass) | passdmenu
 shift + alt + s
     bash ~/scripts/password_manger.sh

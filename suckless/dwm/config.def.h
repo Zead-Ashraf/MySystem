@@ -28,6 +28,7 @@ static const char col_red[]        = "#ff0000";
 static const char col_orange[]        = "#ff7f00";
 static const char col_yellow[]        = "#ffff00";
 static const char col_green[]        = "#00ff00";
+static const char col_green2[]        = "#6ffacc";
 static const char col_cyan2[]        = "#2ac3de";
 static const char col_purple[]        = "#7aa2f7";
 
@@ -45,7 +46,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { ">_", "{..}", "www", "~/", "(ˇ▽ˇ)ノ♫", "¬‿¬"};
+static const char *tags[] = { ">_", "{..}", "www", "~/", "(ˇ▽ˇ)ノ♫", "Q(`⌒´Q)", "¬‿¬"};
 
 static const unsigned int ulinepad	= 5;	/* horizontal padding between the underline and tag */
 static const unsigned int ulinestroke	= 2;	/* thickness / height of the underline */
@@ -59,6 +60,7 @@ static const char *tagsel[][2] = {
 	{ col_yellow, dark_black },
 	{ col_green, dark_black },
 	{ col_cyan2, dark_black },
+    { col_green2, dark_black },
 	{ col_purple, dark_black },
 };
 
@@ -68,8 +70,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ NULL,   "terminator",       NULL,       1,        0,           -1 },
-	{ "st",         NULL,         NULL,       1,        0,           -1 },
+	                                /* tag 1 */
 	                              /* tag 2 */
 	{ NULL,       "geany",       NULL,       1 << 1,        0,           -1 },
 	{ NULL,       "code",       NULL,       1 << 1,        0,           -1 },
@@ -82,6 +83,7 @@ static const Rule rules[] = {
 	                             /* tag 5 */
 	{ "vlc",  NULL,       NULL,       1 << 4,        0,           -1 },
 	{ "mpv",  NULL,       NULL,       1 << 4,        0,           -1 },
+                                /* tag 6 */
 	                           /* current window */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	
