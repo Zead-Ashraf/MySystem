@@ -900,7 +900,7 @@ drawbar(Monitor *m)
 
 	/* draw status first so it can be overdrawn by tags later */
 	if (m == selmon) { /* status is only drawn on selected monitor */
-		tw = m->ww - drawstatusbar(m, bh, stext) - 2 * sp;
+		tw = m->ww - drawstatusbar(m, bh, stext) - lrpad + 2;
 	}
 
 	for (c = m->clients; c; c = c->next) {
