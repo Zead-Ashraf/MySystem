@@ -124,9 +124,10 @@ alias pydoro="source .pydoro/bin/activate && pydoro"
 alias lock="i3lock -c 0d1926 --clock --time-str '%I:%M%p' --date-str '%a %d %B %Y' --date-color '0883ff' --time-color 'ff0883' --date-size 20 --time-size 32"
 alias ytf="ytfzf -f"
 alias mbash="echo '#!/bin/bash' > "
-alias cp="~/.advcpmv/advcp -g"
-alias mv="~/.advcpmv/advmv -g"
-
+alias cp="advcp -g"
+alias mv="advmv -g"
+alias sync-phone="bash ~/scripts/sync.sh"
+alias u="sudo apt update -y && sudo apt upgrade -y"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

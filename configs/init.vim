@@ -21,7 +21,7 @@ set directory=$HOME/.nvim/swap//
 " Plugins will be downloaded under the specified directory.
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 " Declare the list of plugins.
-    Plug 'folke/tokyonight.nvim'
+    Plug 'folke/tokyonight.nvim' " color scheme
     Plug 'tpope/vim-sensible'
     Plug 'preservim/nerdtree' " file viewer
     Plug 'itchyny/lightline.vim' " statusLine
@@ -31,6 +31,8 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
     Plug 'ryanoasis/vim-devicons' " add icons
     Plug 'tpope/vim-surround' 
     Plug 'tpope/vim-commentary' " comment (gcc) & (gc)
+    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'lukas-reineke/indent-blankline.nvim'
     Plug 'ap/vim-css-color' " css live preview colors
     Plug 'terryma/vim-multiple-cursors'
     Plug 'preservim/tagbar'
@@ -40,11 +42,15 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'mileszs/ack.vim'
     Plug 'easymotion/vim-easymotion'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 " ColorSheme
 colorscheme tokyonight-night
+
+" source indent-blankline configs
+source ~/.config/nvim/indent-blankline.lua
 
 "LightLine status bar configs
 let g:lightline = {
@@ -83,7 +89,8 @@ let g:rainbow_conf = {
     \	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
     \	'separately': {
             \		'css': 0,
-            \		'markdown': 0
+            \		'markdown': 0,
+            \       'html': 0
     \     }
 \}
 
@@ -97,10 +104,3 @@ nmap <F8> :TagbarToggle<CR>
 " autocmd
 
 autocmd VimEnter * NERDTree "Enable NERDTree On Boot up
-
-
-
-
-
-
-
