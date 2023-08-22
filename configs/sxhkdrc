@@ -46,6 +46,13 @@ shift + super + n
 shift + super + b
     mocp --previous
 
+# show working track (moc)
+super + 9
+    bash ~/scripts/set_music_action.sh --show
+# hide track name
+super + 0
+    bash ~/scripts/set_music_action.sh --hide
+
 # requirements (pass) | passdmenu
 super + ctrl + s
     bash ~/scripts/password_manger.sh
@@ -61,3 +68,5 @@ super + ctrl + h
 shift + alt + t
     bash ~/scripts/music_status.sh
 
+shift + alt + i
+    bash ~/scripts/gather_issues.sh
