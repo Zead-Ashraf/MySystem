@@ -128,6 +128,7 @@ alias cp="advcp -g"
 alias mv="advmv -g"
 alias sync-phone="bash ~/scripts/sync.sh"
 alias u="sudo apt update -y && sudo apt upgrade -y"
+alias gi="bash ~/scripts/add_issues_to_taskwarrior.sh"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
