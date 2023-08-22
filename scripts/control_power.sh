@@ -1,10 +1,34 @@
 #!/bin/bash
 
-option=$(echo -e -n "Poweroff \nReboot \nLock " | dmenu -l 3 -p "Control Power:")
+function poweroff_sync() {
+    {
+        bash ~/scripts/sync.sh
+    } && {
+        $(systemctl poweroff)
+    } || {
+        callback=$(echo -e -n "Force Poweroff \nRetry \nExit " | dmenu -l 3 -p "Faild to sync:")
+        case $callback in
+            "Force Poweroff ")
+                $(systemctl poweroff)
+            ;;
+            "Retry ")
+                terminator -x bash ~/scripts/control_power.sh
+            ;;
+            "Exit ")
+                exit
+            ;;
+        esac
+    }
+}
+
+option=$(echo -e -n "Poweroff & Sync \nPoweroff \nReboot \nLock " | dmenu -l 4 -p "Control Power:")
 
 case $option in 
-    "Poweroff ")
+    "Poweroff ")
         $(systemctl poweroff)
+        ;;
+    "Poweroff & Sync ")
+        poweroff_sync
         ;;
     "Reboot ")
         $(systemctl reboot)
