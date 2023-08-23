@@ -43,6 +43,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'LunarWatcher/auto-pairs'
     Plug 'ap/vim-css-color'
+    Plug 'wakatime/vim-wakatime'
 call plug#end()
 " -------------------- plugins configs -------------------------------
 " _________________________ coc.nvim configs _________________________ 
