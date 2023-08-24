@@ -16,6 +16,7 @@ set wildmenu " autocomplition menu in command mode
 set wildmode=longest:full,full " wildmenu configs
 set termguicolors " use term real colors (fix colorscheme colors)
 set hlsearch " highlight search queries
+set incsearch " highlight while serching
 let @/ = "" " set search text to nothing in the beggening
 
 " set a directory for swap files
@@ -44,6 +45,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'LunarWatcher/auto-pairs'
     Plug 'ap/vim-css-color'
     Plug 'wakatime/vim-wakatime'
+    Plug 'easymotion/vim-easymotion'
 call plug#end()
 " -------------------- plugins configs -------------------------------
 " _________________________ coc.nvim configs _________________________ 
@@ -95,6 +97,8 @@ let g:rainbow_conf = {
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle"
 
 " _____________________________ air-line configs _____________________
+" Show last command in status line
+set showcmd 
 " show status bar always
 set laststatus=2
 " we don't need show mode because mode is printed in the status bar
@@ -127,6 +131,10 @@ colorscheme night-owl
 nmap <space> <nop>
 " <Leader> + s sources the (.vimrc) file
 noremap <C-s> :source ~/.vimrc<cr>
+" remap the key of Entering the command mode
+nnoremap ; :
+vnoremap ; :
+
 " _________________________ autopaires _______________________________
 " make the douple & exit & then back to insert mode so cursor be in between the
 " douple (|)
