@@ -23,9 +23,15 @@ function mount_flash() {
 
     if [[ $mount_device ]]; then
         device_label=$(sudo blkid -o export -s LABEL | grep $mount_device -A 1 | grep "^LABEL=" | cut -d"=" -f2-)
-        mount_path="/media/$device_label"
-        mkdir $mount_path
-        sudo mount -t auto $mount_device $mount_path
+        if [[ -n $device_label ]]; then    
+            mount_path="/media/$device_label"
+            mkdir $mount_path
+            sudo mount -t auto $mount_device $mount_path
+        else
+            mount_path="/media/usbFlash"
+            mkdir $mount_path
+            sudo mount -t auto $mount_device $mount_path
+        fi
     else
         echo "you have not choosed nothing"
     fi
