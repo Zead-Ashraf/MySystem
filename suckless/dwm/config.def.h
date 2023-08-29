@@ -45,6 +45,18 @@ static const char *colors[][3]      = {
 
 };
 
+typedef struct {
+	const char *name;
+	const void *cmd;
+} Sp;
+const char *spcmd0[] = {"st", "-n", "spterm", "-g", "60x20", NULL };
+const char *spcmd1[] = {"st", "-n", "spfm", "-g", "60x20", "-e", "nnn", NULL };
+static Sp scratchpads[] = {
+	/* name          cmd  */
+	{"spterm",      spcmd0},
+	{"spfm",    spcmd1},
+};
+
 /* tagging */
 static const char *tags[] = { ">_", "{..}", "www", "~/", "(ˇ▽ˇ)ノ♫", "Q(`⌒´Q)", "¬‿¬"};
 
@@ -86,7 +98,9 @@ static const Rule rules[] = {
                                 /* tag 6 */
 	                           /* current window */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	
+                                /* scratchpads */
+	{ NULL,		  "spterm",		NULL,		SPTAG(0),		1,			 -1 },
+	{ NULL,		  "spfm",		NULL,		SPTAG(1),		1,			 -1 },
 };
 
 /* layout(s) */
@@ -178,6 +192,8 @@ static const Key keys[] = {
     { MODKEY,                       XK_F12,    spawn,          {.v = upvol } },
     { MODKEY,                       XK_s,      spawn,          { .v = lockscreen } },
     { MODKEY,                       XK_Print,  spawn,          { .v = flameshot } },
+	{ MODKEY|ShiftMask,     		XK_p,  	   togglescratch,  {.ui = 0 } },
+	{ MODKEY|ShiftMask,     		XK_n,	   togglescratch,  {.ui = 1 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -199,7 +215,7 @@ static const Button buttons[] = {
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
-	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
+	{ ClkClientWin,         MODKEY,         Button1,        resizemouse,    {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
