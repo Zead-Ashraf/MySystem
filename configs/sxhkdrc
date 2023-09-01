@@ -11,6 +11,9 @@ super + p
 super + Return
     st
 
+super + shift + Return
+    terminator
+
 # up Volume
 super + equal
     /usr/bin/amixer set Master 5%+
@@ -36,7 +39,7 @@ super + shift + S
 super + z
     bash ~/scripts/control_power.sh
 
-# requirements (playerctl) & (mpv-mpris) pause all playres* 
+# requirements (playerctl) & (mpv-mpris) pause all playres 
 super + ctrl + p
     bash ~/scripts/pause_playres.sh
 
