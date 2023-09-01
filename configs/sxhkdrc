@@ -1,22 +1,47 @@
-# (ctrl) => controling the system
-# (alt) => prompt someting (opposite of ctrl)
-# (super) => 2nd (ctrl) {if there are conflict} and replace (shift if ctrl)
-# (shift) => default mask
+# modifier => super
+#   if ( conflict )
+#       super + shift
+#       super + ctrl ( if controling smth )
+#       super + alt ( prompt smth )
+
+# Lunch dmenu
+super + p
+    dmenu_run -m dmenumon
+# lunch st
+super + Return
+    st
+
+# up Volume
+super + equal
+    /usr/bin/amixer set Master 5%+
+# down volume
+super + minus
+    /usr/bin/amixer set Master 5%-
+# mute volume
+super + 0
+    amixer -D default sset Master Playback 0%
+
+# take screen ( spawn flameshot )
+ctrl + Print
+    /usr/bin/flameshot gui
+# lock screen ( i3lock )
+super + ctrl + s
+    i3lock -c 0d1926 --clock --time-str '%I:%M%p' --date-str '%a %d %B %Y' --date-color '0883ff' --time-color 'ff0883' --date-size 20 --time-size 32 
 
 # syncronise (pass) & (taskwarrior) with git
-alt + ctrl + s
+super + shift + S
     bash ~/scripts/sync.sh
 
 # power control script
-super + ctrl + z
-   bash ~/scripts/control_power.sh
+super + z
+    bash ~/scripts/control_power.sh
 
-# requirements (playerctl) & (mpv-mpris) pause all playres 
+# requirements (playerctl) & (mpv-mpris) pause all playres* 
 super + ctrl + p
     bash ~/scripts/pause_playres.sh
 
 # unpause all playres
-super + ctrl + o
+super + alt + o
     bash ~/scripts/play_playres.sh
 
 # requirements (playerctl): play vlc 
@@ -28,8 +53,16 @@ super + ctrl + m
     playerctl --player=mpv play
 
 # unpause moc
-shift + super + o
+super + ctrl + o
     mocp --unpause
+
+# play next song (moc)
+super + n
+    mocp --next
+
+#play previous song (moc)
+super + b
+    mocp --previous
 
 # requirements (playerctl) & (mpv-mpris): next track (vlc) first, if not then (mpv)
 super + ctrl + n
@@ -39,34 +72,28 @@ super + ctrl + n
 super + ctrl + b
     playerctl --player=vlc,mpv previous
 
-# play next song (moc)
-shift + super + n
-    mocp --next
-#play previous song (moc)
-shift + super + b
-    mocp --previous
 
-# show working track (moc)
-super + 9
-    bash ~/scripts/set_music_action.sh --show
-# hide track name
-super + 0
-    bash ~/scripts/set_music_action.sh --hide
+# # show working track (moc)
+# super + 9
+#     bash ~/scripts/set_music_action.sh --show
+# # hide track name
+# super + 0
+#     bash ~/scripts/set_music_action.sh --hide
 
 # requirements (pass) | passdmenu
-super + ctrl + s
+super + s
     bash ~/scripts/password_manger.sh
 
 # show mount menu
-super + ctrl + d
+super + d
     bash ~/scripts/mount_method.sh
 
 # add habits to taskwarrior
 super + ctrl + h
     bash ~/scripts/add_taskwarrior_habits.sh
 
-shift + alt + t
+super + alt + t
     bash ~/scripts/music_status.sh
 
-shift + alt + i
+super + alt + i
     bash ~/scripts/gather_issues.sh

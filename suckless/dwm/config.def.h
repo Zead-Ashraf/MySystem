@@ -137,20 +137,9 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, NULL };
-static const char *termcmd[]  = { "st", NULL };
-                          // volume
-static const char *upvol[] = { "/usr/bin/amixer", "set", "Master", "5%+", NULL }; 
-static const char *downvol[] = { "/usr/bin/amixer", "set", "Master", "5%-", NULL };
-static const char *mutevol[] = {"/bin/bash", "-c", "amixer -D default sset Master Playback 0%" };
-                         // FlameShot
-static const char *flameshot[] = {"/usr/bin/flameshot", "gui",  NULL};
-                         // Screen Lock
-static const char *lockscreen[] = {"/bin/bash", "-c", "i3lock -c 0d1926 --clock --time-str '%I:%M%p' --date-str '%a %d %B %Y' --date-color '0883ff' --time-color 'ff0883' --date-size 20 --time-size 32" };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
@@ -187,11 +176,6 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +5 } },
 	{ MODKEY|ShiftMask,             XK_minus,  setgaps,        {.i = GAP_RESET } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = GAP_TOGGLE} },
-	{ MODKEY,                       XK_F9,     spawn,          {.v = mutevol } },
-	{ MODKEY,                       XK_F11,    spawn,          {.v = downvol } },
-    { MODKEY,                       XK_F12,    spawn,          {.v = upvol } },
-    { MODKEY,                       XK_s,      spawn,          { .v = lockscreen } },
-    { MODKEY,                       XK_Print,  spawn,          { .v = flameshot } },
 	{ MODKEY|ShiftMask,     		XK_p,  	   togglescratch,  {.ui = 0 } },
 	{ MODKEY|ShiftMask,     		XK_n,	   togglescratch,  {.ui = 1 } },
 	TAGKEYS(                        XK_1,                      0)
@@ -212,7 +196,6 @@ static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button1,        resizemouse,    {0} },
