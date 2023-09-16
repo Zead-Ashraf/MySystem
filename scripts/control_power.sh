@@ -21,7 +21,7 @@ function poweroff_sync() {
     }
 }
 
-option=$(echo -e -n "Poweroff & Sync \nPoweroff \nReboot \nLock " | dmenu -l 4 -p "Control Power:")
+option=$(echo -e -n "Poweroff & Sync  \nPoweroff \nReboot \nLock " | dmenu -l 4 -fn "Font Awesome" -p "Control Power:")
 
 case $option in 
     "Poweroff ")
