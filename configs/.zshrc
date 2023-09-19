@@ -91,6 +91,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# set terminal vi mode
+set -o vi
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -131,6 +134,7 @@ alias sync-phone="bash ~/scripts/sync.sh"
 alias u="sudo apt update -y && sudo apt upgrade -y"
 alias gi="bash ~/scripts/add_issues_to_taskwarrior.sh"
 alias power="bash ~/scripts/control_power.sh"
+alias cbg="~/.fehbg"
 
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 

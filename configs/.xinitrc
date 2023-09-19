@@ -4,6 +4,7 @@
 ~/.fehbg
 
 # set langauge layout
-setxkbmap -option grp:ctrl_shift_toggle us,ar
+setxkbmap -layout us,ara -option grp:win_space_toggle
+setxkbmap -option caps:escape
 
 xcompmgr & exec dwm & exec slstatus & sxhkd -c ~/.config/sxhkd/sxhkdrc
