@@ -30,7 +30,7 @@ function add_task() {
 
 outputs=$(curl -L \
   -H "Accept: application/vnd.github+json" \
-  -H "Authorization: Bearer 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" \
+  -H "Authorization: Bearer <Your-Token>" \
   -H "X-GitHub-Api-Version: 2022-11-28" \
   https://api.github.com/issues) 
 
