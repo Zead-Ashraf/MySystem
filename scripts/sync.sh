@@ -5,10 +5,10 @@
     GIT='git --git-dir=.git'
     {
         echo "push"
-        $GIT push origin main
+        $GIT push origin master
     } && {
         echo "pull"
-        $GIT pull origin main
+        $GIT pull origin master
     }
 }
 

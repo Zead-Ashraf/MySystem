@@ -6,7 +6,7 @@ function poweroff_sync() {
     } && {
         $(systemctl poweroff)
     } || {
-        callback=$(echo -e -n "Force Poweroff \nRetry \nExit " | dmenu -l 3 -p "Faild to sync:")
+        callback=$(echo -e -n "Force Poweroff \nRetry \nExit " | dmenu -l 3 -fn "Font Awesome" -p "Faild to sync:")
         case $callback in
             "Force Poweroff ")
                 $(systemctl poweroff)
@@ -21,7 +21,7 @@ function poweroff_sync() {
     }
 }
 
-option=$(echo -e -n "Poweroff & Sync  \nPoweroff \nReboot \nLock " | dmenu -l 4 -fn "Font Awesome" -p "Control Power:")
+option=$(echo -e -n "Poweroff & Sync \nPoweroff \nReboot \nLock " | dmenu -l 4 -fn "Font Awesome" -p "Control Power:")
 
 case $option in 
     "Poweroff ")
