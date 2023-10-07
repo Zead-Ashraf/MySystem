@@ -14,7 +14,11 @@ function mount_mtp() {
 
     if [[ $mount_device ]]; then
         mkdir "/media/mtp_$next_index"
-        jmtpfs "/media/mtp_$next_index"
+        {
+            jmtpfs "/media/mtp_$next_index"
+        } && {
+            mpv ~/.config/notification/notification.mp4&
+        }
     else
         echo "you have not choosed nothing"
     fi

@@ -26,11 +26,19 @@ function mount_flash() {
         if [[ -n $device_label ]]; then    
             mount_path="/media/$device_label"
             mkdir $mount_path
-            sudo mount -t auto $mount_device $mount_path
+            {
+                sudo mount -t auto $mount_device $mount_path
+            } && {
+                mpv ~/.config/notification/notification.mp4&
+            }
         else
             mount_path="/media/usbFlash"
             mkdir $mount_path
-            sudo mount -t auto $mount_device $mount_path
+            {
+                sudo mount -t auto $mount_device $mount_path
+            } && {
+                mpv ~/.config/notification/notification.mp4&
+            }
         fi
     else
         echo "you have not choosed nothing"

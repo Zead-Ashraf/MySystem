@@ -11,8 +11,12 @@ function unmount_flash() {
     umount_device=$(echo -e -n $options_list | dmenu -l 3 -p "choose device:")
 
     if [[ $umount_device ]]; then
-        sudo umount "/media/$umount_device"
-        rm -rf "/media/$umount_device"
+        {
+            sudo umount "/media/$umount_device"
+            rm -rf "/media/$umount_device"
+        } && {
+            mpv ~/.config/notification/notification.mp4&
+        }
     else
         echo "you have not choosed nothing"
     fi

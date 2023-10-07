@@ -11,8 +11,12 @@ function unmount_mtp() {
     unmount_device=$(echo -e -n $options_list | dmenu -l 3 -p "choose device:")
 
     if [[ $unmount_device ]]; then
-        sudo umount -l "/media/$unmount_device"
-        rm -rf "/media/$unmount_device"
+        {
+            sudo umount -l "/media/$unmount_device"
+            rm -rf "/media/$unmount_device"
+        } && {
+            mpv ~/.config/notification/notification.mp4&
+        }
     else
         echo "you have not choosed nothing"
     fi
