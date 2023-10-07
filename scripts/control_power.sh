@@ -6,6 +6,7 @@ function poweroff_sync() {
     } && {
         $(systemctl poweroff)
     } || {
+        $(sleep 15 && systemctl poweroff)&
         callback=$(echo -e -n "Force Poweroff \nRetry \nExit " | dmenu -l 3 -fn "Font Awesome" -p "Faild to sync:")
         case $callback in
             "Force Poweroff ")
